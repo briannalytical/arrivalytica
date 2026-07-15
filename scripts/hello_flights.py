@@ -1,18 +1,17 @@
-"""Phase 0 smoke test: verify Amadeus credentials and fetch one route.
+"""Phase 0 smoke test: verify the Travelpayouts token and fetch one route.
 
 Usage:
-    1. Copy .env.example to .env and fill in your Amadeus keys
+    1. Ensure .env contains TRAVELPAYOUTS_TOKEN=<your token>
     2. pip install -e .
     3. python scripts/hello_flights.py
 """
 
-from datetime import date, timedelta
 from pathlib import Path
 
 import yaml
 from dotenv import load_dotenv
 
-from flight_tracker.amadeus_client import AmadeusClient
+from flight_tracker.travelpayouts_client import TravelpayoutsClient
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,45 +21,41 @@ def main() -> None:
 
     config = yaml.safe_load((PROJECT_ROOT / "config" / "routes.yaml").read_text())
     route = config["routes"][0]
-    settings = config["settings"]
+    currency = config["settings"]["currency"].lower()
 
-    departure = date.today() + timedelta(days=30)
+    print(f"Fetching latest observed prices: {route['origin']} -> {route['destination']} ...")
 
-    print(f"Searching {route['origin']} -> {route['destination']} on {departure} ...")
-
-    client = AmadeusClient()
+    client = TravelpayoutsClient()
     try:
-        result = client.search_flight_offers(
+        result = client.latest_prices(
             origin=route["origin"],
             destination=route["destination"],
-            departure_date=departure.isoformat(),
-            adults=settings["adults"],
-            currency=settings["currency"],
-            max_results=5,
+            currency=currency,
+            limit=10,
         )
     finally:
         client.close()
 
-    offers = result.get("data", [])
-    if not offers:
-        print("No offers returned. (Test environment coverage is spotty —")
-        print(" try a different date or route before assuming something is broken.)")
+    observations = result.get("data", [])
+    if not observations:
+        print("Token works (no auth error), but no cached prices for this route right now.")
+        print("Try another route — popularity affects cache coverage.")
         return
 
-    print(f"\nGot {len(offers)} offers. Cheapest options:\n")
-    for offer in sorted(offers, key=lambda o: float(o["price"]["grandTotal"])):
-        price = offer["price"]
-        first_itin = offer["itineraries"][0]
-        stops = len(first_itin["segments"]) - 1
-        carrier = first_itin["segments"][0]["carrierCode"]
+    print(f"\nGot {len(observations)} price observations. Cheapest first:\n")
+    for obs in observations[:10]:
         print(
-            f"  {price['grandTotal']} {price['currency']}"
-            f"  | carrier {carrier} | {stops} stop(s)"
-            f"  | duration {first_itin['duration']}"
+            f"  {obs.get('value'):>8} {currency.upper()}"
+            f"  | depart {obs.get('depart_date')}"
+            f"  | {obs.get('number_of_changes', '?')} stop(s)"
+            f"  | seen {obs.get('found_at')}"
         )
 
-    print("\nCredentials work. Phase 0 complete — commit and move to Phase 1.")
+    print("\nToken verified against the live API. Phase 0 complete — commit and move to Phase 1.")
 
+
+if __name__ == "__main__":
+    main()
 
 if __name__ == "__main__":
     main()
