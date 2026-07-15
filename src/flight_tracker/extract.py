@@ -52,30 +52,6 @@ SCHEMA = pa.schema(
 )
 
 
-def expand_routes(route_entries: list[dict]) -> list[dict]:
-    """Expand config entries into unique origin->destination pairs.
-
-    Supports two entry styles, which can be mixed freely:
-      - single pair:     {origin: JFK, destination: LHR}
-      - cross-product:   {origins: [JFK, BOS], destinations: [LHR, CDG]}
-
-    Duplicate pairs (e.g. listed once directly and once via a
-    cross-product) are pulled only once.
-    """
-    seen: set[tuple[str, str]] = set()
-    pairs: list[dict] = []
-    for entry in route_entries:
-        origins = entry.get("origins") or [entry["origin"]]
-        destinations = entry.get("destinations") or [entry["destination"]]
-        for o in origins:
-            for d in destinations:
-                key = (o, d)
-                if key not in seen:
-                    seen.add(key)
-                    pairs.append({"origin": o, "destination": d})
-    return pairs
-
-
 def extract_route(
     client: TravelpayoutsClient,
     origin: str,
@@ -151,7 +127,7 @@ def write_manifest(
 def main() -> int:
     load_dotenv(PROJECT_ROOT / ".env")
     config = yaml.safe_load((PROJECT_ROOT / "config" / "routes.yaml").read_text())
-    routes = expand_routes(config["routes"])
+    routes = config["routes"]
     currency = config["settings"]["currency"].lower()
 
     pull_date = date.today().isoformat()
