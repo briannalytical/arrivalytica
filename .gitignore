@@ -1,0 +1,16 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
+
+# Data (Parquet lake lives outside git — it will grow fast)
+data/
+
+# Tooling
+.pytest_cache/
+.dbt/

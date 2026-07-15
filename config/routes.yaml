@@ -1,0 +1,21 @@
+# Routes to track. Edit freely — these are starter examples.
+# Airport codes are IATA (3 letters). One entry per origin->destination pair.
+# Note: the Amadeus TEST environment only covers a subset of routes.
+# Major-hub international pairs like these generally work well.
+
+routes:
+  - origin: JFK
+    destination: LHR   # New York -> London
+  - origin: BOS
+    destination: CDG   # Boston -> Paris
+  - origin: SFO
+    destination: NRT   # San Francisco -> Tokyo
+  - origin: LAX
+    destination: SYD   # Los Angeles -> Sydney
+
+settings:
+  currency: USD
+  adults: 1
+  # Phase 1 will use these to build the rolling window of departure dates:
+  min_days_ahead: 7
+  max_days_ahead: 90

@@ -1,0 +1,22 @@
+[project]
+name = "flight-tracker"
+version = "0.1.0"
+description = "Flight price tracking pipeline: Amadeus API -> Parquet -> dbt/DuckDB -> Streamlit"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.27",
+    "python-dotenv>=1.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
