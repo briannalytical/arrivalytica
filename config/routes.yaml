@@ -1,21 +1,66 @@
-# Routes to track. Edit freely — these are starter examples.
-# Airport codes are IATA (3 letters). One entry per origin->destination pair.
-# Note: the Amadeus TEST environment only covers a subset of routes.
-# Major-hub international pairs like these generally work well.
+# ============================================================
+# Route configuration — arrivalytica
+# ============================================================
+# Every UNCOMMENTED pair below gets pulled on every extract run,
+# so the active section defines your daily data collection.
+# Commented lines are a reference menu — uncomment to activate.
+#
+# Entry styles (mix freely):
+#   Single pair:      - origin: JFK
+#                       destination: LHR
+#   Cross-product:    - origins: [JFK, BOS]
+#                       destinations: [LHR, CDG]
+#
+# Math check: origins x destinations = API calls per run.
+# 8 x 12 = 96 calls is fine; just be aware of the multiplication.
+# Duplicates across entries are automatically pulled only once.
+# ============================================================
 
 routes:
-  - origin: JFK
-    destination: LHR   # New York -> London
-  - origin: BOS
-    destination: CDG   # Boston -> Paris
+  # ---- Active routes (edit me!) ------------------------------
+
   - origin: SFO
-    destination: NRT   # San Francisco -> Tokyo
+    destination: NRT   # San Francisco -> Tokyo Narita
+
   - origin: LAX
     destination: SYD   # Los Angeles -> Sydney
+
+  - origins: [JFK, BOS]        # <- add origins here
+    destinations: [LHR]        # <- add destinations here
+
+  # ---- US international hubs (reference menu) ----------------
+  # Top-tier gateways:
+  #   JFK  New York JFK          LAX  Los Angeles
+  #   MIA  Miami                 SFO  San Francisco
+  #   EWR  Newark (NYC #2)       ORD  Chicago O'Hare
+  #   ATL  Atlanta               DFW  Dallas/Fort Worth
+  # Second tier:
+  #   IAD  Washington Dulles     IAH  Houston
+  #   BOS  Boston                SEA  Seattle
+  #   DTW  Detroit               MSP  Minneapolis
+  #   PHL  Philadelphia          CLT  Charlotte
+  #   DEN  Denver                SLC  Salt Lake City
+  # Best for cheap international fares (most competition):
+  #   JFK, EWR, LAX, ORD, MIA, BOS
+
+  # ---- International destinations (reference menu) -----------
+  # Asia:
+  #   NRT  Tokyo Narita          HND  Tokyo Haneda
+  #   KIX  Osaka Kansai          TPE  Taipei Taoyuan
+  # Europe:
+  #   LHR  London Heathrow       LGW  London Gatwick
+  #   MAN  Manchester UK         IST  Istanbul
+  #   LIS  Lisbon                BCN  Barcelona
+  #   MAD  Madrid                MUC  Munich
+  #   KRK  Krakow                WAW  Warsaw Chopin
+  #   CDG  Paris                 FCO  Rome
+  #   MPL  Montpellier (tiny regional — expect thin/no US data;
+  #        alternates: MRS Marseille, or connect via CDG)
+  # Other:
+  #   SYD  Sydney
 
 settings:
   currency: USD
   adults: 1
-  # Phase 1 will use these to build the rolling window of departure dates:
   min_days_ahead: 7
-  max_days_ahead: 90
+  max_days_ahead: 180
