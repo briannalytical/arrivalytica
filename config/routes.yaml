@@ -18,17 +18,13 @@
 
 routes:
   # ---- Active routes ------------------------------
-
   - origin: SFO
     destinations: [NRT, HND, KIX, TPE, SYD]   # SFO to Asia/Aus/NZ
-
   - origin: LAX
     destinations: [NRT, HND, KIX, TPE, SYD]
-
-  - origins: JFK
+  - origins: [JFK]
     destinations: [KEF, LHR, MAN, LGW, LIS, BCN, IST, MAD, MUC, KRK, WAW]
-
-  - origins: BOS
+  - origins: [BOS]
     destinations: [KEF, LHR, MAN, LGW, LIS, BCN, IST, MAD, MUC, KRK, WAW]
 
   # ---- US international hubs (reference menu) ----------------
