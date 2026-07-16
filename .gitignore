@@ -14,3 +14,4 @@ data/
 # Tooling
 .pytest_cache/
 .dbt/
+.DS_Store
