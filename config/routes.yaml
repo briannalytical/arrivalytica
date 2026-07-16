@@ -23,7 +23,7 @@ routes:
     destinations: [NRT, HND, KIX, TPE, SYD]   # SFO to Asia/Aus/NZ
 
   - origin: LAX
-    destination: [NRT, HND, KIX, TPE, SYD]
+    destinations: [NRT, HND, KIX, TPE, SYD]
 
   - origins: JFK
     destinations: [KEF, LHR, MAN, LGW, LIS, BCN, IST, MAD, MUC, KRK, WAW]
