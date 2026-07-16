@@ -20,7 +20,7 @@ routes:
   # ---- Active routes ------------------------------
 
   - origin: SFO
-    destination: [NRT, HND, KIX, TPE, SYD]   # SFO to Asia/Aus/NZ
+    destinations: [NRT, HND, KIX, TPE, SYD]   # SFO to Asia/Aus/NZ
 
   - origin: LAX
     destination: [NRT, HND, KIX, TPE, SYD]
