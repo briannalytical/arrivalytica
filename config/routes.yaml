@@ -17,16 +17,15 @@
 # ============================================================
 
 routes:
-  # ---- Active routes (edit me!) ------------------------------
-
+  # ---- Active routes ------------------------------
   - origin: SFO
-    destination: NRT   # San Francisco -> Tokyo Narita
-
+    destinations: [NRT, HND, KIX, TPE, SYD]   # SFO to Asia/Aus/NZ
   - origin: LAX
-    destination: SYD   # Los Angeles -> Sydney
-
-  - origins: [JFK, BOS]        # <- add origins here
-    destinations: [LHR]        # <- add destinations here
+    destinations: [NRT, HND, KIX, TPE, SYD]
+  - origins: [JFK]
+    destinations: [KEF, LHR, MAN, LGW, LIS, BCN, IST, MAD, MUC, KRK, WAW]
+  - origins: [BOS]
+    destinations: [KEF, LHR, MAN, LGW, LIS, BCN, IST, MAD, MUC, KRK, WAW]
 
   # ---- US international hubs (reference menu) ----------------
   # Top-tier gateways:
@@ -43,21 +42,102 @@ routes:
   # Best for cheap international fares (most competition):
   #   JFK, EWR, LAX, ORD, MIA, BOS
 
-  # ---- International destinations (reference menu) -----------
-  # Asia:
-  #   NRT  Tokyo Narita          HND  Tokyo Haneda
-  #   KIX  Osaka Kansai          TPE  Taipei Taoyuan
-  # Europe:
-  #   LHR  London Heathrow       LGW  London Gatwick
-  #   MAN  Manchester UK         IST  Istanbul
-  #   LIS  Lisbon                BCN  Barcelona
-  #   MAD  Madrid                MUC  Munich
-  #   KRK  Krakow                WAW  Warsaw Chopin
-  #   CDG  Paris                 FCO  Rome
-  #   MPL  Montpellier (tiny regional — expect thin/no US data;
-  #        alternates: MRS Marseille, or connect via CDG)
-  # Other:
-  #   SYD  Sydney
+# ---- Asia: major international airports ---------------------
+  # Japan:
+  #   NRT  Tokyo Narita           HND  Tokyo Haneda
+  #   KIX  Osaka Kansai           NGO  Nagoya Chubu
+  #   FUK  Fukuoka                CTS  Sapporo New Chitose
+  #   OKA  Okinawa Naha
+  # South Korea:
+  #   ICN  Seoul Incheon          GMP  Seoul Gimpo (mostly regional)
+  #   PUS  Busan
+  # China (mainland):
+  #   PEK  Beijing Capital        PKX  Beijing Daxing
+  #   PVG  Shanghai Pudong        SHA  Shanghai Hongqiao (mostly domestic)
+  #   CAN  Guangzhou              SZX  Shenzhen
+  #   CTU  Chengdu Tianfu         XIY  Xi'an
+  # Hong Kong / Taiwan / Macau:
+  #   HKG  Hong Kong              TPE  Taipei Taoyuan
+  #   TSA  Taipei Songshan (regional)   MFM  Macau
+  # Southeast Asia:
+  #   SIN  Singapore Changi       BKK  Bangkok Suvarnabhumi
+  #   DMK  Bangkok Don Mueang (budget carriers)
+  #   KUL  Kuala Lumpur           CGK  Jakarta
+  #   DPS  Bali Denpasar          MNL  Manila
+  #   SGN  Ho Chi Minh City       HAN  Hanoi
+  #   DAD  Da Nang                PNH  Phnom Penh
+  #   RGN  Yangon
+  # South Asia:
+  #   DEL  Delhi                  BOM  Mumbai
+  #   BLR  Bengaluru              MAA  Chennai
+  #   HYD  Hyderabad              CCU  Kolkata
+  #   CMB  Colombo                DAC  Dhaka
+  #   KTM  Kathmandu              MLE  Malé (Maldives)
+  # Central Asia / Caucasus:
+  #   TAS  Tashkent               ALA  Almaty
+  #   TBS  Tbilisi                BAK/GYD  Baku
+
+  # ---- Europe: major international airports --------------------
+  # UK & Ireland:
+  #   LHR  London Heathrow        LGW  London Gatwick
+  #   STN  London Stansted (budget)   MAN  Manchester
+  #   EDI  Edinburgh              DUB  Dublin
+  # France / Benelux:
+  #   CDG  Paris Charles de Gaulle    ORY  Paris Orly
+  #   NCE  Nice                   MRS  Marseille
+  #   AMS  Amsterdam Schiphol     BRU  Brussels
+  # Germany / Alps:
+  #   FRA  Frankfurt              MUC  Munich
+  #   BER  Berlin                 DUS  Düsseldorf
+  #   ZRH  Zurich                 GVA  Geneva
+  #   VIE  Vienna
+  # Iberia:
+  #   MAD  Madrid                 BCN  Barcelona
+  #   LIS  Lisbon                 OPO  Porto
+  #   AGP  Málaga                 PMI  Palma de Mallorca
+  # Italy:
+  #   FCO  Rome Fiumicino         MXP  Milan Malpensa
+  #   VCE  Venice                 NAP  Naples
+  # Nordics:
+  #   CPH  Copenhagen             ARN  Stockholm Arlanda
+  #   OSL  Oslo                   HEL  Helsinki
+  #   KEF  Reykjavik Keflavik (budget transatlantic hub)
+  # Central & Eastern Europe:
+  #   WAW  Warsaw Chopin          KRK  Krakow
+  #   PRG  Prague                 BUD  Budapest
+  #   OTP  Bucharest              SOF  Sofia
+  #   ZAG  Zagreb                 BEG  Belgrade
+  # Southeast Europe / Turkey / Greece:
+  #   ATH  Athens                 IST  Istanbul
+  #   SAW  Istanbul Sabiha (budget)
+
+  # ---- Mexico -------------------------------------------------
+  #   MEX  Mexico City Benito Juárez   NLU  Mexico City Felipe Ángeles (newer)
+  #   CUN  Cancún                 GDL  Guadalajara
+  #   MTY  Monterrey              SJD  Los Cabos
+  #   PVR  Puerto Vallarta        TIJ  Tijuana
+  #   OAX  Oaxaca                 MID  Mérida
+
+  # ---- Central America & Caribbean -----------------------------
+  #   SJO  San José, Costa Rica   LIR  Liberia, Costa Rica
+  #   PTY  Panama City Tocumen (major hub)
+  #   GUA  Guatemala City         SAL  San Salvador
+  #   BZE  Belize City            MGA  Managua
+  #   SJU  San Juan, Puerto Rico  PUJ  Punta Cana
+  #   SDQ  Santo Domingo          MBJ  Montego Bay
+  #   NAS  Nassau                 AUA  Aruba
+  #   HAV  Havana (US service limited/politically variable)
+
+  # ---- South America -------------------------------------------
+  #   BOG  Bogotá (major hub)     MDE  Medellín
+  #   CTG  Cartagena              LIM  Lima (major hub)
+  #   UIO  Quito                  GYE  Guayaquil
+  #   GRU  São Paulo Guarulhos (biggest in S.America)
+  #   GIG  Rio de Janeiro Galeão  BSB  Brasília
+  #   EZE  Buenos Aires Ezeiza    AEP  Buenos Aires Aeroparque (regional)
+  #   SCL  Santiago               MVD  Montevideo
+  #   ASU  Asunción               VVI  Santa Cruz, Bolivia
+  #   CCS  Caracas (very limited US service)
 
 settings:
   currency: USD
