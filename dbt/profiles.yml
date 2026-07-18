@@ -1,0 +1,9 @@
+arrivalytica:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # The analytics warehouse lives next to the bronze data.
+      # Created automatically on first run.
+      path: ../data/warehouse.duckdb
+      threads: 4

@@ -1,0 +1,13 @@
+name: arrivalytica
+version: "1.0.0"
+profile: arrivalytica
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  arrivalytica:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

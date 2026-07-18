@@ -1,0 +1,828 @@
+[0m22:40:41.370255 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1ff5c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c2b7da0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c2b7ad0>]}
+
+
+============================== 22:40:41.375315 | 4b461a31-2223-4f45-8e53-10c052d2ac38 ==============================
+[0m22:40:41.375315 [info ] [MainThread]: Running with dbt=1.12.0
+[0m22:40:41.375608 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'log_path': '/Users/breemcneil/Developer/arrivalytica/dbt/logs', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'profiles_dir': '.', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'quiet': 'False', 'target_path': 'None', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'maximum_seed_size_mib': '1', 'log_cache_events': 'False', 'empty': 'False', 'partial_parse': 'True', 'debug': 'False', 'indirect_selection': 'eager', 'version_check': 'True', 'printer_width': '80', 'fail_fast': 'False', 'invocation_command': 'dbt build --profiles-dir .', 'hints_enabled': 'True', 'use_colors': 'True', 'introspect': 'True'}
+[0m22:40:42.258402 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c2ef560>]}
+[0m22:40:42.281800 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c22a120>]}
+[0m22:40:42.282870 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m22:40:42.508609 [debug] [MainThread]: checksum: 6b40bb26cb79676e1c20e8274633c9907634cf55b4c4ec5c5f97e307c9c738df, vars: {}, profile: arrivalytica, target: dev, version: 1.12.0
+[0m22:40:42.509038 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m22:40:42.509221 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c518110>]}
+[0m22:40:43.146354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb979b0>]}
+[0m22:40:43.195691 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/breemcneil/Developer/arrivalytica/dbt/target/manifest.json
+[0m22:40:43.196941 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/breemcneil/Developer/arrivalytica/dbt/target/semantic_manifest.json
+[0m22:40:43.202891 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/breemcneil/Developer/arrivalytica/dbt/target/osi_document.json
+[0m22:40:43.214715 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce3f8c0>]}
+[0m22:40:43.214908 [info ] [MainThread]: Found 3 models, 10 data tests, 1 source, 486 macros
+[0m22:40:43.215873 [info ] [MainThread]: 
+[0m22:40:43.216006 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:40:43.216105 [info ] [MainThread]: 
+[0m22:40:43.216304 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m22:40:43.218165 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m22:40:43.240314 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m22:40:43.240478 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"warehouse"'
+    
+  
+  
+[0m22:40:43.240596 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:40:43.246779 [debug] [ThreadPool]: SQL status: OK in 0.006 seconds
+[0m22:40:43.247340 [debug] [ThreadPool]: On list_warehouse: Close
+[0m22:40:43.247607 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m22:40:43.247772 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m22:40:43.250069 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m22:40:43.250186 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='warehouse'
+        and type='sqlite'
+    
+  
+[0m22:40:43.250282 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:40:43.250623 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m22:40:43.251288 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m22:40:43.251401 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m22:40:43.251560 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m22:40:43.251652 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m22:40:43.251746 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m22:40:43.251933 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m22:40:43.252224 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m22:40:43.252321 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m22:40:43.252406 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m22:40:43.252530 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m22:40:43.252621 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m22:40:43.253106 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_warehouse_main, now list_warehouse_main)
+[0m22:40:43.254815 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m22:40:43.254914 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m22:40:43.254997 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:40:43.255145 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m22:40:43.255231 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m22:40:43.255320 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'warehouse'
+  
+[0m22:40:43.256658 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m22:40:43.257080 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m22:40:43.257830 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m22:40:43.257927 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m22:40:43.258133 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109636780>]}
+[0m22:40:43.258305 [debug] [MainThread]: Using duckdb connection "master"
+[0m22:40:43.258404 [debug] [MainThread]: On master: BEGIN
+[0m22:40:43.258487 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:40:43.258642 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m22:40:43.258734 [debug] [MainThread]: On master: COMMIT
+[0m22:40:43.258826 [debug] [MainThread]: Using duckdb connection "master"
+[0m22:40:43.258914 [debug] [MainThread]: On master: COMMIT
+[0m22:40:43.259047 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m22:40:43.259146 [debug] [MainThread]: On master: Close
+[0m22:40:43.261291 [debug] [Thread-1 (]: Began running node model.arrivalytica.stg_price_observations
+[0m22:40:43.261478 [info ] [Thread-1 (]: 1 of 13 START sql view model main.stg_price_observations ....................... [RUN]
+[0m22:40:43.261642 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_warehouse_main, now model.arrivalytica.stg_price_observations)
+[0m22:40:43.261765 [debug] [Thread-1 (]: Began compiling node model.arrivalytica.stg_price_observations
+[0m22:40:43.264405 [debug] [Thread-1 (]: Writing injected SQL for node "model.arrivalytica.stg_price_observations"
+[0m22:40:43.264768 [debug] [Thread-1 (]: Began executing node model.arrivalytica.stg_price_observations
+[0m22:40:43.305560 [debug] [Thread-1 (]: Writing runtime sql for node "model.arrivalytica.stg_price_observations"
+[0m22:40:43.306128 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.stg_price_observations"
+[0m22:40:43.306267 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: BEGIN
+[0m22:40:43.306378 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:40:43.306656 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.306769 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.stg_price_observations"
+[0m22:40:43.306945 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.stg_price_observations"} */
+
+  
+  create view "warehouse"."main"."stg_price_observations__dbt_tmp" as (
+    -- Staging: one clean, typed row per unique price observation.
+--
+-- Cleaning applied here (and only here — marts trust this model):
+--   * Cast strings to real DATE/TIMESTAMP/numeric types.
+--   * Flag daily-aggregate records: the API mixes individually observed
+--     fares (real timestamps) with daily aggregates (found_at stamped
+--     exactly midnight). Discovered during Phase 0 smoke testing.
+--   * Deduplicate: the same cached observation can be captured by
+--     multiple daily pulls; keep one row per unique observation,
+--     remembering the first pull that saw it.
+
+with source as (
+
+    select * from read_parquet('../data/bronze/latest_prices/pull_date=*/data.parquet')
+
+),
+
+typed as (
+
+    select
+        origin_requested                          as origin,
+        destination_requested                     as destination,
+        cast(value as double)                     as price,
+        upper(currency)                           as currency,
+        cast(depart_date as date)                 as depart_date,
+        cast(return_date as date)                 as return_date,
+        cast(number_of_changes as integer)        as stops,
+        cast(found_at as timestamp)               as found_at,
+        cast(distance as integer)                 as distance_km,
+        cast(pull_date as date)                   as pull_date,
+        cast(pulled_at_utc as timestamp)          as pulled_at_utc,
+        raw_json
+    from source
+
+),
+
+flagged as (
+
+    select
+        *,
+        -- midnight-stamped found_at = daily aggregate, not a discrete observation
+        (extract(hour from found_at) = 0
+         and extract(minute from found_at) = 0
+         and extract(second from found_at) = 0)   as is_daily_aggregate
+    from typed
+
+),
+
+deduped as (
+
+    select
+        *,
+        row_number() over (
+            partition by origin, destination, depart_date, found_at, price, stops
+            order by pull_date
+        ) as _rn
+    from flagged
+
+)
+
+select
+    origin,
+    destination,
+    price,
+    currency,
+    depart_date,
+    return_date,
+    stops,
+    found_at,
+    is_daily_aggregate,
+    distance_km,
+    pull_date as first_seen_pull_date,
+    pulled_at_utc,
+    raw_json
+from deduped
+where _rn = 1
+  );
+
+[0m22:40:43.309197 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m22:40:43.311341 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.stg_price_observations"
+[0m22:40:43.311473 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.stg_price_observations"} */
+alter view "warehouse"."main"."stg_price_observations__dbt_tmp" rename to "stg_price_observations"
+[0m22:40:43.311734 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.316299 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: COMMIT
+[0m22:40:43.316429 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.stg_price_observations"
+[0m22:40:43.316535 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: COMMIT
+[0m22:40:43.317024 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.318762 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.stg_price_observations"
+[0m22:40:43.318885 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.stg_price_observations"} */
+
+      drop view if exists "warehouse"."main"."stg_price_observations__dbt_backup" cascade
+    
+[0m22:40:43.319081 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.319988 [debug] [Thread-1 (]: On model.arrivalytica.stg_price_observations: Close
+[0m22:40:43.320622 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d343620>]}
+[0m22:40:43.320849 [info ] [Thread-1 (]: 1 of 13 OK created sql view model main.stg_price_observations .................. [[32mOK[0m in 0.06s]
+[0m22:40:43.321050 [debug] [Thread-1 (]: Finished running node model.arrivalytica.stg_price_observations
+[0m22:40:43.321386 [debug] [Thread-3 (]: Began running node test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba
+[0m22:40:43.321537 [debug] [Thread-4 (]: Began running node test.arrivalytica.assert_sane_prices
+[0m22:40:43.321775 [debug] [Thread-2 (]: Began running node test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1
+[0m22:40:43.321900 [debug] [Thread-1 (]: Began running node test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f
+[0m22:40:43.321670 [info ] [Thread-3 (]: 2 of 13 START test accepted_values_stg_price_observations_currency__USD ........ [RUN]
+[0m22:40:43.322047 [info ] [Thread-4 (]: 3 of 13 START test assert_sane_prices .......................................... [RUN]
+[0m22:40:43.322178 [info ] [Thread-2 (]: 4 of 13 START test not_null_stg_price_observations_depart_date ................. [RUN]
+[0m22:40:43.322311 [info ] [Thread-1 (]: 5 of 13 START test not_null_stg_price_observations_destination ................. [RUN]
+[0m22:40:43.322500 [debug] [Thread-3 (]: Acquiring new duckdb connection 'test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba'
+[0m22:40:43.322667 [debug] [Thread-4 (]: Acquiring new duckdb connection 'test.arrivalytica.assert_sane_prices'
+[0m22:40:43.322834 [debug] [Thread-2 (]: Acquiring new duckdb connection 'test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1'
+[0m22:40:43.322968 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.arrivalytica.stg_price_observations, now test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f)
+[0m22:40:43.323091 [debug] [Thread-3 (]: Began compiling node test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba
+[0m22:40:43.323204 [debug] [Thread-4 (]: Began compiling node test.arrivalytica.assert_sane_prices
+[0m22:40:43.323315 [debug] [Thread-2 (]: Began compiling node test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1
+[0m22:40:43.323432 [debug] [Thread-1 (]: Began compiling node test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f
+[0m22:40:43.325896 [debug] [Thread-3 (]: Writing injected SQL for node "test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba"
+[0m22:40:43.326478 [debug] [Thread-4 (]: Writing injected SQL for node "test.arrivalytica.assert_sane_prices"
+[0m22:40:43.330337 [debug] [Thread-2 (]: Writing injected SQL for node "test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1"
+[0m22:40:43.332487 [debug] [Thread-1 (]: Writing injected SQL for node "test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f"
+[0m22:40:43.332901 [debug] [Thread-2 (]: Began executing node test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1
+[0m22:40:43.339580 [debug] [Thread-2 (]: Writing runtime sql for node "test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1"
+[0m22:40:43.339711 [debug] [Thread-3 (]: Began executing node test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba
+[0m22:40:43.339864 [debug] [Thread-4 (]: Began executing node test.arrivalytica.assert_sane_prices
+[0m22:40:43.340460 [debug] [Thread-3 (]: Writing runtime sql for node "test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba"
+[0m22:40:43.340592 [debug] [Thread-1 (]: Began executing node test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f
+[0m22:40:43.341242 [debug] [Thread-4 (]: Writing runtime sql for node "test.arrivalytica.assert_sane_prices"
+[0m22:40:43.341877 [debug] [Thread-1 (]: Writing runtime sql for node "test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f"
+[0m22:40:43.342067 [debug] [Thread-2 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1"
+[0m22:40:43.342191 [debug] [Thread-3 (]: Using duckdb connection "test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba"
+[0m22:40:43.342327 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1: BEGIN
+[0m22:40:43.342456 [debug] [Thread-3 (]: On test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba: BEGIN
+[0m22:40:43.342652 [debug] [Thread-1 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f"
+[0m22:40:43.342775 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m22:40:43.342916 [debug] [Thread-4 (]: Using duckdb connection "test.arrivalytica.assert_sane_prices"
+[0m22:40:43.343021 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m22:40:43.343138 [debug] [Thread-1 (]: On test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f: BEGIN
+[0m22:40:43.343313 [debug] [Thread-4 (]: On test.arrivalytica.assert_sane_prices: BEGIN
+[0m22:40:43.343469 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.343582 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:40:43.343694 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.343797 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:40:43.343908 [debug] [Thread-2 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1"
+[0m22:40:43.344065 [debug] [Thread-3 (]: Using duckdb connection "test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba"
+[0m22:40:43.344182 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.344337 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select depart_date
+from "warehouse"."main"."stg_price_observations"
+where depart_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.344477 [debug] [Thread-3 (]: On test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        currency as value_field,
+        count(*) as n_records
+
+    from "warehouse"."main"."stg_price_observations"
+    group by currency
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'USD'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.344601 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.344705 [debug] [Thread-1 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f"
+[0m22:40:43.344920 [debug] [Thread-4 (]: Using duckdb connection "test.arrivalytica.assert_sane_prices"
+[0m22:40:43.345054 [debug] [Thread-1 (]: On test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select destination
+from "warehouse"."main"."stg_price_observations"
+where destination is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.345198 [debug] [Thread-4 (]: On test.arrivalytica.assert_sane_prices: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.assert_sane_prices"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- Fails if any observation has a non-positive or absurd price.
+-- (A $0 or $90,000 economy fare is a data quality problem, not a deal.)
+
+select *
+from "warehouse"."main"."stg_price_observations"
+where price <= 0
+   or price > 20000
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.347157 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m22:40:43.348843 [debug] [Thread-4 (]: On test.arrivalytica.assert_sane_prices: ROLLBACK
+[0m22:40:43.349001 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m22:40:43.349161 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m22:40:43.349510 [debug] [Thread-4 (]: Failed to rollback 'test.arrivalytica.assert_sane_prices'
+[0m22:40:43.349627 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m22:40:43.350153 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1: ROLLBACK
+[0m22:40:43.350269 [debug] [Thread-4 (]: On test.arrivalytica.assert_sane_prices: Close
+[0m22:40:43.350697 [debug] [Thread-3 (]: On test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba: ROLLBACK
+[0m22:40:43.351165 [debug] [Thread-1 (]: On test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f: ROLLBACK
+[0m22:40:43.351475 [debug] [Thread-2 (]: Failed to rollback 'test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1'
+[0m22:40:43.352046 [debug] [Thread-3 (]: Failed to rollback 'test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba'
+[0m22:40:43.351715 [info ] [Thread-4 (]: 3 of 13 PASS assert_sane_prices ................................................ [[32mPASS[0m in 0.03s]
+[0m22:40:43.352418 [debug] [Thread-1 (]: Failed to rollback 'test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f'
+[0m22:40:43.352537 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1: Close
+[0m22:40:43.352659 [debug] [Thread-3 (]: On test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba: Close
+[0m22:40:43.352849 [debug] [Thread-4 (]: Finished running node test.arrivalytica.assert_sane_prices
+[0m22:40:43.352968 [debug] [Thread-1 (]: On test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f: Close
+[0m22:40:43.353158 [info ] [Thread-2 (]: 4 of 13 PASS not_null_stg_price_observations_depart_date ....................... [[32mPASS[0m in 0.03s]
+[0m22:40:43.353502 [debug] [Thread-4 (]: Began running node test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6
+[0m22:40:43.353382 [info ] [Thread-3 (]: 2 of 13 PASS accepted_values_stg_price_observations_currency__USD .............. [[32mPASS[0m in 0.03s]
+[0m22:40:43.353911 [debug] [Thread-2 (]: Finished running node test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1
+[0m22:40:43.353750 [info ] [Thread-1 (]: 5 of 13 PASS not_null_stg_price_observations_destination ....................... [[32mPASS[0m in 0.03s]
+[0m22:40:43.354078 [info ] [Thread-4 (]: 6 of 13 START test not_null_stg_price_observations_origin ...................... [RUN]
+[0m22:40:43.354273 [debug] [Thread-3 (]: Finished running node test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba
+[0m22:40:43.354412 [debug] [Thread-2 (]: Began running node test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f
+[0m22:40:43.354595 [debug] [Thread-1 (]: Finished running node test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f
+[0m22:40:43.354743 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.arrivalytica.assert_sane_prices, now test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6)
+[0m22:40:43.354912 [info ] [Thread-2 (]: 7 of 13 START test not_null_stg_price_observations_price ....................... [RUN]
+[0m22:40:43.355078 [debug] [Thread-4 (]: Began compiling node test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6
+[0m22:40:43.355233 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.arrivalytica.not_null_stg_price_observations_depart_date.395bc5bda1, now test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f)
+[0m22:40:43.357880 [debug] [Thread-4 (]: Writing injected SQL for node "test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6"
+[0m22:40:43.358015 [debug] [Thread-2 (]: Began compiling node test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f
+[0m22:40:43.360779 [debug] [Thread-2 (]: Writing injected SQL for node "test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f"
+[0m22:40:43.361006 [debug] [Thread-4 (]: Began executing node test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6
+[0m22:40:43.361616 [debug] [Thread-4 (]: Writing runtime sql for node "test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6"
+[0m22:40:43.361740 [debug] [Thread-2 (]: Began executing node test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f
+[0m22:40:43.362358 [debug] [Thread-2 (]: Writing runtime sql for node "test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f"
+[0m22:40:43.362553 [debug] [Thread-4 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6"
+[0m22:40:43.362684 [debug] [Thread-4 (]: On test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6: BEGIN
+[0m22:40:43.362794 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m22:40:43.362923 [debug] [Thread-2 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f"
+[0m22:40:43.363116 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f: BEGIN
+[0m22:40:43.363227 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m22:40:43.363336 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.363489 [debug] [Thread-4 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6"
+[0m22:40:43.363608 [debug] [Thread-4 (]: On test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select origin
+from "warehouse"."main"."stg_price_observations"
+where origin is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.363727 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.363879 [debug] [Thread-2 (]: Using duckdb connection "test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f"
+[0m22:40:43.363993 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price
+from "warehouse"."main"."stg_price_observations"
+where price is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.364865 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.365406 [debug] [Thread-4 (]: On test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6: ROLLBACK
+[0m22:40:43.365544 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.365877 [debug] [Thread-4 (]: Failed to rollback 'test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6'
+[0m22:40:43.366016 [debug] [Thread-4 (]: On test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6: Close
+[0m22:40:43.366455 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f: ROLLBACK
+[0m22:40:43.366672 [info ] [Thread-4 (]: 6 of 13 PASS not_null_stg_price_observations_origin ............................ [[32mPASS[0m in 0.01s]
+[0m22:40:43.367034 [debug] [Thread-2 (]: Failed to rollback 'test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f'
+[0m22:40:43.367203 [debug] [Thread-4 (]: Finished running node test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6
+[0m22:40:43.367325 [debug] [Thread-2 (]: On test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f: Close
+[0m22:40:43.367572 [info ] [Thread-2 (]: 7 of 13 PASS not_null_stg_price_observations_price ............................. [[32mPASS[0m in 0.01s]
+[0m22:40:43.367762 [debug] [Thread-2 (]: Finished running node test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f
+[0m22:40:43.367998 [debug] [Thread-3 (]: Began running node model.arrivalytica.fct_price_observations
+[0m22:40:43.368122 [debug] [Thread-1 (]: Began running node model.arrivalytica.route_daily_summary
+[0m22:40:43.368309 [info ] [Thread-3 (]: 8 of 13 START sql table model main.fct_price_observations ...................... [RUN]
+[0m22:40:43.368504 [info ] [Thread-1 (]: 9 of 13 START sql table model main.route_daily_summary ......................... [RUN]
+[0m22:40:43.368662 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.arrivalytica.accepted_values_stg_price_observations_currency__USD.931bdf26ba, now model.arrivalytica.fct_price_observations)
+[0m22:40:43.368807 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.arrivalytica.not_null_stg_price_observations_destination.e70b80370f, now model.arrivalytica.route_daily_summary)
+[0m22:40:43.368926 [debug] [Thread-3 (]: Began compiling node model.arrivalytica.fct_price_observations
+[0m22:40:43.369042 [debug] [Thread-1 (]: Began compiling node model.arrivalytica.route_daily_summary
+[0m22:40:43.369725 [debug] [Thread-3 (]: Writing injected SQL for node "model.arrivalytica.fct_price_observations"
+[0m22:40:43.370306 [debug] [Thread-1 (]: Writing injected SQL for node "model.arrivalytica.route_daily_summary"
+[0m22:40:43.370609 [debug] [Thread-3 (]: Began executing node model.arrivalytica.fct_price_observations
+[0m22:40:43.370721 [debug] [Thread-1 (]: Began executing node model.arrivalytica.route_daily_summary
+[0m22:40:43.377992 [debug] [Thread-3 (]: Writing runtime sql for node "model.arrivalytica.fct_price_observations"
+[0m22:40:43.378949 [debug] [Thread-1 (]: Writing runtime sql for node "model.arrivalytica.route_daily_summary"
+[0m22:40:43.379261 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.route_daily_summary"
+[0m22:40:43.379383 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: BEGIN
+[0m22:40:43.379509 [debug] [Thread-3 (]: Using duckdb connection "model.arrivalytica.fct_price_observations"
+[0m22:40:43.379623 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:40:43.379734 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: BEGIN
+[0m22:40:43.379891 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:40:43.380035 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.380144 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.route_daily_summary"
+[0m22:40:43.380252 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.380373 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.route_daily_summary"} */
+
+  
+    
+    
+
+    create  table
+      "warehouse"."main"."route_daily_summary__dbt_tmp"
+  
+    as (
+      -- One row per route per pull date: the daily pulse of each route.
+-- This is the table the dashboard's trend lines will read.
+
+with observations as (
+
+    select * from "warehouse"."main"."stg_price_observations"
+
+)
+
+select
+    origin,
+    destination,
+    origin || '-' || destination        as route,
+    first_seen_pull_date                as pull_date,
+    count(*)                            as observations,
+    min(price)                          as min_price,
+    round(avg(price), 2)                as avg_price,
+    max(price)                          as max_price,
+    round(stddev_samp(price), 2)        as price_stddev,
+    min(price) filter (stops = 0)       as min_price_nonstop,
+    count(*)  filter (stops = 0)        as nonstop_observations
+from observations
+group by 1, 2, 3, 4
+    );
+  
+  
+[0m22:40:43.380502 [debug] [Thread-3 (]: Using duckdb connection "model.arrivalytica.fct_price_observations"
+[0m22:40:43.380699 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.fct_price_observations"} */
+
+  
+    
+    
+
+    create  table
+      "warehouse"."main"."fct_price_observations__dbt_tmp"
+  
+    as (
+      -- Fact table: every clean observation, enriched with the booking-window
+-- measure that powers the "when should I buy?" analytics.
+
+with observations as (
+
+    select * from "warehouse"."main"."stg_price_observations"
+
+)
+
+select
+    origin,
+    destination,
+    origin || '-' || destination                    as route,
+    price,
+    currency,
+    depart_date,
+    stops,
+    stops = 0                                       as is_nonstop,
+    found_at,
+    is_daily_aggregate,
+    first_seen_pull_date,
+    -- how far ahead of departure this fare was observed
+    depart_date - cast(found_at as date)            as days_before_departure,
+    dayname(depart_date)                            as depart_day_of_week
+from observations
+where depart_date >= cast(found_at as date)  -- guard against stale/odd records
+    );
+  
+  
+[0m22:40:43.383220 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m22:40:43.384065 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.route_daily_summary"
+[0m22:40:43.384186 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.route_daily_summary"} */
+alter table "warehouse"."main"."route_daily_summary__dbt_tmp" rename to "route_daily_summary"
+[0m22:40:43.384308 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m22:40:43.385186 [debug] [Thread-3 (]: Using duckdb connection "model.arrivalytica.fct_price_observations"
+[0m22:40:43.385311 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.fct_price_observations"} */
+alter table "warehouse"."main"."fct_price_observations__dbt_tmp" rename to "fct_price_observations"
+[0m22:40:43.385426 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.387327 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: COMMIT
+[0m22:40:43.387449 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.route_daily_summary"
+[0m22:40:43.387557 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m22:40:43.387663 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: COMMIT
+[0m22:40:43.388228 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: COMMIT
+[0m22:40:43.388386 [debug] [Thread-3 (]: Using duckdb connection "model.arrivalytica.fct_price_observations"
+[0m22:40:43.388509 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: COMMIT
+[0m22:40:43.388635 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.389208 [debug] [Thread-1 (]: Using duckdb connection "model.arrivalytica.route_daily_summary"
+[0m22:40:43.389335 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.route_daily_summary"} */
+
+      drop table if exists "warehouse"."main"."route_daily_summary__dbt_backup" cascade
+    
+[0m22:40:43.389451 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.389969 [debug] [Thread-3 (]: Using duckdb connection "model.arrivalytica.fct_price_observations"
+[0m22:40:43.390087 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "model.arrivalytica.fct_price_observations"} */
+
+      drop table if exists "warehouse"."main"."fct_price_observations__dbt_backup" cascade
+    
+[0m22:40:43.390202 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.390677 [debug] [Thread-1 (]: On model.arrivalytica.route_daily_summary: Close
+[0m22:40:43.390799 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.390995 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc0b290>]}
+[0m22:40:43.391437 [debug] [Thread-3 (]: On model.arrivalytica.fct_price_observations: Close
+[0m22:40:43.391670 [info ] [Thread-1 (]: 9 of 13 OK created sql table model main.route_daily_summary .................... [[32mOK[0m in 0.02s]
+[0m22:40:43.391866 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4b461a31-2223-4f45-8e53-10c052d2ac38', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb7c9e0>]}
+[0m22:40:43.392043 [debug] [Thread-1 (]: Finished running node model.arrivalytica.route_daily_summary
+[0m22:40:43.392230 [info ] [Thread-3 (]: 8 of 13 OK created sql table model main.fct_price_observations ................. [[32mOK[0m in 0.02s]
+[0m22:40:43.392479 [debug] [Thread-3 (]: Finished running node model.arrivalytica.fct_price_observations
+[0m22:40:43.392662 [debug] [Thread-2 (]: Began running node test.arrivalytica.not_null_route_daily_summary_min_price.2508785753
+[0m22:40:43.392787 [debug] [Thread-4 (]: Began running node test.arrivalytica.not_null_route_daily_summary_route.a92f61a579
+[0m22:40:43.393023 [debug] [Thread-3 (]: Began running node test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2
+[0m22:40:43.392921 [info ] [Thread-2 (]: 10 of 13 START test not_null_route_daily_summary_min_price ..................... [RUN]
+[0m22:40:43.393175 [debug] [Thread-1 (]: Began running node test.arrivalytica.not_null_fct_price_observations_route.5eb5761671
+[0m22:40:43.393291 [info ] [Thread-4 (]: 11 of 13 START test not_null_route_daily_summary_route ......................... [RUN]
+[0m22:40:43.393422 [info ] [Thread-3 (]: 12 of 13 START test not_null_fct_price_observations_days_before_departure ...... [RUN]
+[0m22:40:43.393573 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.arrivalytica.not_null_stg_price_observations_price.0e3c20957f, now test.arrivalytica.not_null_route_daily_summary_min_price.2508785753)
+[0m22:40:43.393706 [info ] [Thread-1 (]: 13 of 13 START test not_null_fct_price_observations_route ...................... [RUN]
+[0m22:40:43.393865 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.arrivalytica.not_null_stg_price_observations_origin.7db2f86ff6, now test.arrivalytica.not_null_route_daily_summary_route.a92f61a579)
+[0m22:40:43.394017 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.arrivalytica.fct_price_observations, now test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2)
+[0m22:40:43.394144 [debug] [Thread-2 (]: Began compiling node test.arrivalytica.not_null_route_daily_summary_min_price.2508785753
+[0m22:40:43.394281 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.arrivalytica.route_daily_summary, now test.arrivalytica.not_null_fct_price_observations_route.5eb5761671)
+[0m22:40:43.394404 [debug] [Thread-4 (]: Began compiling node test.arrivalytica.not_null_route_daily_summary_route.a92f61a579
+[0m22:40:43.394526 [debug] [Thread-3 (]: Began compiling node test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2
+[0m22:40:43.397005 [debug] [Thread-2 (]: Writing injected SQL for node "test.arrivalytica.not_null_route_daily_summary_min_price.2508785753"
+[0m22:40:43.397132 [debug] [Thread-1 (]: Began compiling node test.arrivalytica.not_null_fct_price_observations_route.5eb5761671
+[0m22:40:43.399408 [debug] [Thread-4 (]: Writing injected SQL for node "test.arrivalytica.not_null_route_daily_summary_route.a92f61a579"
+[0m22:40:43.401771 [debug] [Thread-3 (]: Writing injected SQL for node "test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2"
+[0m22:40:43.404019 [debug] [Thread-1 (]: Writing injected SQL for node "test.arrivalytica.not_null_fct_price_observations_route.5eb5761671"
+[0m22:40:43.404328 [debug] [Thread-4 (]: Began executing node test.arrivalytica.not_null_route_daily_summary_route.a92f61a579
+[0m22:40:43.404452 [debug] [Thread-2 (]: Began executing node test.arrivalytica.not_null_route_daily_summary_min_price.2508785753
+[0m22:40:43.405040 [debug] [Thread-4 (]: Writing runtime sql for node "test.arrivalytica.not_null_route_daily_summary_route.a92f61a579"
+[0m22:40:43.405180 [debug] [Thread-3 (]: Began executing node test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2
+[0m22:40:43.405784 [debug] [Thread-2 (]: Writing runtime sql for node "test.arrivalytica.not_null_route_daily_summary_min_price.2508785753"
+[0m22:40:43.405908 [debug] [Thread-1 (]: Began executing node test.arrivalytica.not_null_fct_price_observations_route.5eb5761671
+[0m22:40:43.406458 [debug] [Thread-3 (]: Writing runtime sql for node "test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2"
+[0m22:40:43.406666 [debug] [Thread-4 (]: Using duckdb connection "test.arrivalytica.not_null_route_daily_summary_route.a92f61a579"
+[0m22:40:43.407681 [debug] [Thread-1 (]: Writing runtime sql for node "test.arrivalytica.not_null_fct_price_observations_route.5eb5761671"
+[0m22:40:43.407864 [debug] [Thread-2 (]: Using duckdb connection "test.arrivalytica.not_null_route_daily_summary_min_price.2508785753"
+[0m22:40:43.407977 [debug] [Thread-4 (]: On test.arrivalytica.not_null_route_daily_summary_route.a92f61a579: BEGIN
+[0m22:40:43.408136 [debug] [Thread-2 (]: On test.arrivalytica.not_null_route_daily_summary_min_price.2508785753: BEGIN
+[0m22:40:43.408263 [debug] [Thread-3 (]: Using duckdb connection "test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2"
+[0m22:40:43.408399 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m22:40:43.408513 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m22:40:43.408639 [debug] [Thread-1 (]: Using duckdb connection "test.arrivalytica.not_null_fct_price_observations_route.5eb5761671"
+[0m22:40:43.408752 [debug] [Thread-3 (]: On test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2: BEGIN
+[0m22:40:43.408982 [debug] [Thread-1 (]: On test.arrivalytica.not_null_fct_price_observations_route.5eb5761671: BEGIN
+[0m22:40:43.409103 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.409208 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:40:43.409316 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.409434 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:40:43.409550 [debug] [Thread-4 (]: Using duckdb connection "test.arrivalytica.not_null_route_daily_summary_route.a92f61a579"
+[0m22:40:43.409707 [debug] [Thread-2 (]: Using duckdb connection "test.arrivalytica.not_null_route_daily_summary_min_price.2508785753"
+[0m22:40:43.409854 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.409980 [debug] [Thread-4 (]: On test.arrivalytica.not_null_route_daily_summary_route.a92f61a579: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_route_daily_summary_route.a92f61a579"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select route
+from "warehouse"."main"."route_daily_summary"
+where route is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.410093 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m22:40:43.410218 [debug] [Thread-2 (]: On test.arrivalytica.not_null_route_daily_summary_min_price.2508785753: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_route_daily_summary_min_price.2508785753"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select min_price
+from "warehouse"."main"."route_daily_summary"
+where min_price is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.410347 [debug] [Thread-3 (]: Using duckdb connection "test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2"
+[0m22:40:43.410514 [debug] [Thread-1 (]: Using duckdb connection "test.arrivalytica.not_null_fct_price_observations_route.5eb5761671"
+[0m22:40:43.410702 [debug] [Thread-3 (]: On test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select days_before_departure
+from "warehouse"."main"."fct_price_observations"
+where days_before_departure is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.410828 [debug] [Thread-4 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.410943 [debug] [Thread-1 (]: On test.arrivalytica.not_null_fct_price_observations_route.5eb5761671: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "arrivalytica", "target_name": "dev", "node_id": "test.arrivalytica.not_null_fct_price_observations_route.5eb5761671"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select route
+from "warehouse"."main"."fct_price_observations"
+where route is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m22:40:43.411059 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m22:40:43.411743 [debug] [Thread-4 (]: On test.arrivalytica.not_null_route_daily_summary_route.a92f61a579: ROLLBACK
+[0m22:40:43.412247 [debug] [Thread-2 (]: On test.arrivalytica.not_null_route_daily_summary_min_price.2508785753: ROLLBACK
+[0m22:40:43.412618 [debug] [Thread-4 (]: Failed to rollback 'test.arrivalytica.not_null_route_daily_summary_route.a92f61a579'
+[0m22:40:43.412739 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m22:40:43.413041 [debug] [Thread-2 (]: Failed to rollback 'test.arrivalytica.not_null_route_daily_summary_min_price.2508785753'
+[0m22:40:43.413151 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m22:40:43.413256 [debug] [Thread-4 (]: On test.arrivalytica.not_null_route_daily_summary_route.a92f61a579: Close
+[0m22:40:43.413393 [debug] [Thread-2 (]: On test.arrivalytica.not_null_route_daily_summary_min_price.2508785753: Close
+[0m22:40:43.413886 [debug] [Thread-3 (]: On test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2: ROLLBACK
+[0m22:40:43.414349 [debug] [Thread-1 (]: On test.arrivalytica.not_null_fct_price_observations_route.5eb5761671: ROLLBACK
+[0m22:40:43.414588 [info ] [Thread-4 (]: 11 of 13 PASS not_null_route_daily_summary_route ............................... [[32mPASS[0m in 0.02s]
+[0m22:40:43.414800 [info ] [Thread-2 (]: 10 of 13 PASS not_null_route_daily_summary_min_price ........................... [[32mPASS[0m in 0.02s]
+[0m22:40:43.415169 [debug] [Thread-3 (]: Failed to rollback 'test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2'
+[0m22:40:43.415502 [debug] [Thread-1 (]: Failed to rollback 'test.arrivalytica.not_null_fct_price_observations_route.5eb5761671'
+[0m22:40:43.415678 [debug] [Thread-4 (]: Finished running node test.arrivalytica.not_null_route_daily_summary_route.a92f61a579
+[0m22:40:43.415852 [debug] [Thread-2 (]: Finished running node test.arrivalytica.not_null_route_daily_summary_min_price.2508785753
+[0m22:40:43.415969 [debug] [Thread-3 (]: On test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2: Close
+[0m22:40:43.416089 [debug] [Thread-1 (]: On test.arrivalytica.not_null_fct_price_observations_route.5eb5761671: Close
+[0m22:40:43.416358 [info ] [Thread-3 (]: 12 of 13 PASS not_null_fct_price_observations_days_before_departure ............ [[32mPASS[0m in 0.02s]
+[0m22:40:43.416554 [info ] [Thread-1 (]: 13 of 13 PASS not_null_fct_price_observations_route ............................ [[32mPASS[0m in 0.02s]
+[0m22:40:43.416737 [debug] [Thread-3 (]: Finished running node test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2
+[0m22:40:43.416915 [debug] [Thread-1 (]: Finished running node test.arrivalytica.not_null_fct_price_observations_route.5eb5761671
+[0m22:40:43.417443 [debug] [MainThread]: Using duckdb connection "master"
+[0m22:40:43.417548 [debug] [MainThread]: On master: BEGIN
+[0m22:40:43.417637 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:40:43.417845 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m22:40:43.417942 [debug] [MainThread]: On master: COMMIT
+[0m22:40:43.418032 [debug] [MainThread]: Using duckdb connection "master"
+[0m22:40:43.418116 [debug] [MainThread]: On master: COMMIT
+[0m22:40:43.418255 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m22:40:43.418345 [debug] [MainThread]: On master: Close
+[0m22:40:43.418469 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:40:43.418555 [debug] [MainThread]: Connection 'test.arrivalytica.not_null_fct_price_observations_route.5eb5761671' was properly closed.
+[0m22:40:43.418637 [debug] [MainThread]: Connection 'test.arrivalytica.not_null_fct_price_observations_days_before_departure.e28297b0d2' was properly closed.
+[0m22:40:43.418717 [debug] [MainThread]: Connection 'test.arrivalytica.not_null_route_daily_summary_route.a92f61a579' was properly closed.
+[0m22:40:43.418792 [debug] [MainThread]: Connection 'test.arrivalytica.not_null_route_daily_summary_min_price.2508785753' was properly closed.
+[0m22:40:43.418910 [info ] [MainThread]: 
+[0m22:40:43.419018 [info ] [MainThread]: Finished running 2 table models, 10 data tests, 1 view model in 0 hours 0 minutes and 0.20 seconds (0.20s).
+[0m22:40:43.419764 [debug] [MainThread]: Command end result
+[0m22:40:43.434842 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/breemcneil/Developer/arrivalytica/dbt/target/manifest.json
+[0m22:40:43.436250 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/breemcneil/Developer/arrivalytica/dbt/target/semantic_manifest.json
+[0m22:40:43.437397 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/breemcneil/Developer/arrivalytica/dbt/target/osi_document.json
+[0m22:40:43.440543 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/breemcneil/Developer/arrivalytica/dbt/target/run_results.json
+[0m22:40:43.440666 [info ] [MainThread]: 
+[0m22:40:43.440801 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m22:40:43.440904 [info ] [MainThread]: 
+[0m22:40:43.441014 [info ] [MainThread]: Done. PASS=13 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=13
+[0m22:40:43.594992 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 2.2734425, "process_in_blocks": "0", "process_kernel_time": 0.241938, "process_mem_max_rss": "200179712", "process_out_blocks": "0", "process_user_time": 1.936387}
+[0m22:40:43.595476 [debug] [MainThread]: Command `dbt build` succeeded at 22:40:43.595380 after 2.27 seconds
+[0m22:40:43.595817 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094e6cf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d04c2f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d04c680>]}
+[0m22:40:43.596152 [debug] [MainThread]: Flushing usage events
+[0m22:40:43.854659 [debug] [MainThread]: An error was encountered while trying to flush usage events

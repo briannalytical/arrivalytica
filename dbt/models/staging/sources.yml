@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: >
+      Raw price observations exactly as captured from the Travelpayouts
+      Data API by the extraction pipeline. One Hive-style partition per
+      pull date. Never cleaned here — that's what staging is for.
+    tables:
+      - name: latest_prices
+        description: Observed fares per route, one row per cached observation.
+        meta:
+          external_location: >-
+            read_parquet('../data/bronze/latest_prices/pull_date=*/data.parquet')
