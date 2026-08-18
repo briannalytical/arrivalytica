@@ -24,10 +24,27 @@ Amadeus API -> Python ingestion -> Parquet (bronze) -> dbt + DuckDB (silver/gold
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -e .
-cp .env.example .env   # then fill in your Amadeus keys
+cp .env.example .env   # fill in keys
 python scripts/hello_flights.py
 ```
 
-## Design decisions
 
-(Documented as the project evolves — see commits.)
+### [Update 8/18/26] 
+## Running the pipeline
+
+From the project root, with the venv active:
+
+    source .venv/bin/activate
+
+**1. Extract** — pull all configured routes into today's bronze partition:
+
+    python3 -m flight_tracker.extract
+
+**2. Transform + test** — rebuild the dbt models and run data quality tests:
+
+    cd dbt && dbt build --profiles-dir . && cd ..
+
+Other commands:
+
+    python3 scripts/get_flights.py                      # API smoke test (token check)
+    python3 scripts/query.py queries/route_summary.sql  # run an exploratory query
