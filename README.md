@@ -13,9 +13,9 @@ Amadeus API -> Python ingestion -> Parquet (bronze) -> dbt + DuckDB (silver/gold
 ## Status
 
 - [x] Phase 0 — repo scaffold + API smoke test
-- [ ] Phase 1 — scheduled ingestion to partitioned Parquet
-- [ ] Phase 2 — dbt models + data quality tests
-- [ ] Phase 3 — Airflow orchestration
+- [x] Phase 1 — scheduled ingestion to partitioned Parquet
+- [x] Phase 2 — dbt models + data quality tests
+- [x] Phase 3 — Airflow orchestration
 - [ ] Phase 4 — Streamlit dashboard + price-drop alerts
 - [ ] Phase 5 — CI, architecture docs, polish
 
