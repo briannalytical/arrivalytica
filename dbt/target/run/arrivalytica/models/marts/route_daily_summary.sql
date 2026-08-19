@@ -1,11 +1,10 @@
 
-  
-    
     
 
     create  table
       "warehouse"."main"."route_daily_summary__dbt_tmp"
   
+    
     as (
       -- One row per route per pull date: the daily pulse of each route.
 -- This is the table the dashboard's trend lines will read.
@@ -31,5 +30,5 @@ select
 from observations
 group by 1, 2, 3, 4
     );
-  
+    
   

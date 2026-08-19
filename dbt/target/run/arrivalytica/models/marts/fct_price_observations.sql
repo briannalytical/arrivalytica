@@ -1,11 +1,10 @@
 
-  
-    
     
 
     create  table
       "warehouse"."main"."fct_price_observations__dbt_tmp"
   
+    
     as (
       -- Fact table: every clean observation, enriched with the booking-window
 -- measure that powers the "when should I buy?" analytics.
@@ -34,5 +33,5 @@ select
 from observations
 where depart_date >= cast(found_at as date)  -- guard against stale/odd records
     );
-  
+    
   
